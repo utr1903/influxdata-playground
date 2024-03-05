@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# # Add repo
+# Add repo
 helm repo add influxdata https://helm.influxdata.com/
 helm repo update
 
@@ -8,7 +8,6 @@ helm repo update
 declare -A influxdb
 influxdb["name"]="influxdb"
 influxdb["namespace"]="test"
-influxdb["replicas"]=2
 influxdb["port"]=8086
 influxdb["password"]="admin123"
 influxdb["token"]="admin123"
@@ -25,7 +24,6 @@ helm upgrade ${influxdb[name]} \
   --create-namespace \
   --namespace=${influxdb[namespace]} \
   --set fullnameOverride=${influxdb[name]} \
-  --set replicas=${influxdb[replicas]} \
   --set adminUser.password=${influxdb[password]} \
   --set adminUser.token=${influxdb[token]} \
   --set service.port=${influxdb[port]} \
