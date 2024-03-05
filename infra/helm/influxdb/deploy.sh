@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # # Add repo
-# helm repo add influxdata https://helm.influxdata.com/
-# helm repo update
+helm repo add influxdata https://helm.influxdata.com/
+helm repo update
 
 # influxdb
 declare -A influxdb
