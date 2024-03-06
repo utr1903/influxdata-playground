@@ -1,0 +1,1113 @@
+{
+	"meta": {
+		"chronografVersion": "1.9.4",
+		"sources": {
+			"1": {
+				"name": "Influx 1",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "1",
+		"cells": [
+			{
+				"i": "91176f40-8cb9-40a3-95fe-d7a982cba833",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Average temperature per device",
+				"queries": [
+					{
+						"query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:), \"device\" FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "temperature",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"device"
+								]
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1738755d-da04-41fc-8eb6-ad8d29ed48cb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cbc8286e-5653-4922-b4d9-7225b2d1ae3a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2240aa1d-550c-47f3-973d-bbed42baa453",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/91176f40-8cb9-40a3-95fe-d7a982cba833"
+				}
+			},
+			{
+				"i": "0ce68726-389f-42ac-93fa-420a755d3043",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Average pressure per device",
+				"queries": [
+					{
+						"query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"pressure\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:), \"device\" FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "pressure",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"device"
+								]
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1738755d-da04-41fc-8eb6-ad8d29ed48cb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cbc8286e-5653-4922-b4d9-7225b2d1ae3a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2240aa1d-550c-47f3-973d-bbed42baa453",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/0ce68726-389f-42ac-93fa-420a755d3043"
+				}
+			},
+			{
+				"i": "3ae663ed-2763-44a7-aa1f-b13f8d42e1ac",
+				"x": 6,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Current temperature",
+				"queries": [
+					{
+						"query": "SELECT last(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "temperature",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#9394FF",
+						"name": "comet",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/3ae663ed-2763-44a7-aa1f-b13f8d42e1ac"
+				}
+			},
+			{
+				"i": "20c371bd-b568-4187-81ee-004d975a6d9e",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Current pressure",
+				"queries": [
+					{
+						"query": "SELECT last(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"pressure\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "pressure",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#9394FF",
+						"name": "comet",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/20c371bd-b568-4187-81ee-004d975a6d9e"
+				}
+			},
+			{
+				"i": "44fcaf86-7d61-4cb2-a54d-e147c35d2666",
+				"x": 8,
+				"y": 0,
+				"w": 4,
+				"h": 3,
+				"name": "Average temperature",
+				"queries": [
+					{
+						"query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "temperature",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1738755d-da04-41fc-8eb6-ad8d29ed48cb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cbc8286e-5653-4922-b4d9-7225b2d1ae3a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2240aa1d-550c-47f3-973d-bbed42baa453",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/44fcaf86-7d61-4cb2-a54d-e147c35d2666"
+				}
+			},
+			{
+				"i": "8e2b90a2-5aa5-4356-a794-d6e601299434",
+				"x": 2,
+				"y": 0,
+				"w": 4,
+				"h": 3,
+				"name": "Average pressure",
+				"queries": [
+					{
+						"query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"pressure\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "pressure",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1738755d-da04-41fc-8eb6-ad8d29ed48cb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cbc8286e-5653-4922-b4d9-7225b2d1ae3a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2240aa1d-550c-47f3-973d-bbed42baa453",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/8e2b90a2-5aa5-4356-a794-d6e601299434"
+				}
+			},
+			{
+				"i": "83309fb2-210f-49db-81b2-16b778729ad2",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Average pressure per environment",
+				"queries": [
+					{
+						"query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"pressure\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:), \"environment\" FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "pressure",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"environment"
+								]
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1738755d-da04-41fc-8eb6-ad8d29ed48cb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cbc8286e-5653-4922-b4d9-7225b2d1ae3a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2240aa1d-550c-47f3-973d-bbed42baa453",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/83309fb2-210f-49db-81b2-16b778729ad2"
+				}
+			},
+			{
+				"i": "4653cea7-35bb-427d-a8ad-7cb3b67335b4",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Average temperature per environment",
+				"queries": [
+					{
+						"query": "SELECT mean(\"value\") AS \"mean_value\" FROM \"default\".\"autogen\".\"temperature\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:), \"environment\" FILL(null)",
+						"queryConfig": {
+							"database": "default",
+							"measurement": "temperature",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_value",
+									"args": [
+										{
+											"value": "value",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": [
+									"environment"
+								]
+							},
+							"areTagsAccepted": false,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1738755d-da04-41fc-8eb6-ad8d29ed48cb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cbc8286e-5653-4922-b4d9-7225b2d1ae3a",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "2240aa1d-550c-47f3-973d-bbed42baa453",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/4653cea7-35bb-427d-a8ad-7cb3b67335b4"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":pressure_devices:",
+				"values": [
+					{
+						"value": "pres-device-1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "6ff93d9f-8285-4bbb-a9a7-5be0b7ddc1b9",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"default\" FROM \"pressure\" WITH KEY = \"device\"",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/templates/6ff93d9f-8285-4bbb-a9a7-5be0b7ddc1b9"
+				}
+			},
+			{
+				"tempVar": ":temperature_devices:",
+				"values": [
+					{
+						"value": "temp-device-1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "651aa85c-8d4a-45f8-9d38-da5f65b3da99",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"default\" FROM \"temperature\" WITH KEY = \"device\"",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/templates/651aa85c-8d4a-45f8-9d38-da5f65b3da99"
+				}
+			}
+		],
+		"name": "Playground",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/1",
+			"cells": "/chronograf/v1/dashboards/1/cells",
+			"templates": "/chronograf/v1/dashboards/1/templates"
+		}
+	}
+}
