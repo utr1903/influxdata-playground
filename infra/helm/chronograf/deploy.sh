@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# # Add repo
-# helm repo add influxdata https://helm.influxdata.com/
-# helm repo update
+# Add repo
+helm repo add influxdata https://helm.influxdata.com/
+helm repo update
 
 # chronograf
 declare -A chronograf
