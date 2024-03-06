@@ -57,23 +57,23 @@ func main() {
 
 			// Temperature 1
 			writePoint(ctx, log, db, "temperature", "temp-device-1",
-				"room-"+strconv.FormatInt(int64(randomizer.Intn(100)), 3))
+				"room-"+strconv.FormatInt(int64(randomizer.Intn(5)), 10))
 
-			// Temperature 1
-			writePoint(ctx, log, db, "temperature", "temp-device-1",
-				"room-"+strconv.FormatInt(int64(randomizer.Intn(100)), 3))
+			// Temperature 2
+			writePoint(ctx, log, db, "temperature", "temp-device-2",
+				"room-"+strconv.FormatInt(int64(randomizer.Intn(5)), 10))
 
 			// Pressure 1
 			writePoint(ctx, log, db, "pressure", "pres-device-1",
-				"room-"+strconv.FormatInt(int64(randomizer.Intn(100)), 3))
+				"room-"+strconv.FormatInt(int64(randomizer.Intn(5)), 10))
 
 			// Pressure 2
 			writePoint(ctx, log, db, "pressure", "pres-device-2",
-				"room-"+strconv.FormatInt(int64(randomizer.Intn(100)), 3))
+				"room-"+strconv.FormatInt(int64(randomizer.Intn(5)), 10))
 
 			// Pressure 3
 			writePoint(ctx, log, db, "pressure", "pres-device-3",
-				"room-"+strconv.FormatInt(int64(randomizer.Intn(100)), 3))
+				"room-"+strconv.FormatInt(int64(randomizer.Intn(5)), 10))
 		}
 	}
 }
@@ -97,8 +97,8 @@ func writePoint(
 	log.Log(logrus.InfoLevel, "Writing point...", attrs)
 	err := db.WritePoint(ctx, measurementName,
 		map[string]string{
-			"device":      environmentName,
-			"environment": deviceName,
+			"device":      deviceName,
+			"environment": environmentName,
 		},
 		map[string]interface{}{
 			"value": value,
