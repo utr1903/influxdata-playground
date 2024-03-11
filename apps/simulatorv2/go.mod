@@ -1,4 +1,4 @@
-module test
+module simulatorv2
 
 go 1.21
 

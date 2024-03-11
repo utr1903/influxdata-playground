@@ -11,14 +11,6 @@ while (( "$#" )); do
       platform="$2"
       shift
       ;;
-    --language)
-      language="$2"
-      shift
-      ;;
-    --project)
-      project="${2}"
-      shift
-      ;;
     *)
       shift
       ;;
@@ -36,12 +28,12 @@ else
   fi
 fi
 
-declare -A simulator
-simulator["name"]="simulator"
-simulator["imageName"]="${dockerUsername}/${simulator[name]}:latest"
+declare -A simulatorv2
+simulatorv2["name"]="simulatorv2"
+simulatorv2["imageName"]="${dockerUsername}/${simulatorv2[name]}:latest"
 
 docker build \
   --platform "linux/${platform}" \
-  --tag "${simulator["imageName"]}" \
+  --tag "${simulatorv2["imageName"]}" \
   "."
-docker push "${simulator["imageName"]}"
+docker push "${simulatorv2["imageName"]}"

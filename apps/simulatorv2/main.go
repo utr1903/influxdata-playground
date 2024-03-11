@@ -6,10 +6,10 @@ import (
 	"math/rand"
 	"os"
 	"os/signal"
+	"simulatorv2/influxdb"
+	"simulatorv2/logger"
 	"strconv"
 	"syscall"
-	"test/influxdb"
-	"test/logger"
 	"time"
 
 	"github.com/sirupsen/logrus"
