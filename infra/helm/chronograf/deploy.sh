@@ -14,6 +14,12 @@ chronograf["port"]=80
 ### Deploy Helm ###
 ###################
 
+# dashboard
+kubectl create configmap \
+  -n ${chronograf[namespace]} \
+  dashboard \
+  --from-file=Playground.dashboard 
+
 # chronograf
 helm upgrade ${chronograf[name]} \
   --install \
@@ -22,4 +28,8 @@ helm upgrade ${chronograf[name]} \
   --create-namespace \
   --namespace=${chronograf[namespace]} \
   --set nameOverride=${chronograf[name]} \
+  --set volumes[0].name=dashboard \
+  --set volumes[0].configMap.name=dashboard \
+  --set volumeMounts[0].name=dashboard \
+  --set volumeMounts[0].mountPath=/usr/share/chronograf/resources \
   "influxdata/chronograf"
