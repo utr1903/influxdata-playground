@@ -17,7 +17,7 @@ chronograf["port"]=80
 # dashboard
 kubectl create configmap \
   -n ${chronograf[namespace]} \
-  dashboard \
+  chronograf-dashboard \
   --from-file=Playground.dashboard 
 
 # chronograf

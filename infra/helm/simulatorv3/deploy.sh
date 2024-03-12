@@ -23,7 +23,6 @@ done
 
 # influxdbv3
 declare -A influxdbv3
-influxdbv3["replicas"]=2
 influxdbv3["port"]=8086
 influxdbv3["organization"]="influxdata"
 influxdbv3["bucket"]="test"
