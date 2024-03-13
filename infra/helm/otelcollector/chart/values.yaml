@@ -1,0 +1,20 @@
+### Variables
+
+# Name
+name: otelcollector
+
+# Image
+imageName: "otel/opentelemetry-collector-contrib:0.96.0"
+imagePullPolicy: IfNotPresent
+
+# Replicas
+replicas: 1
+
+# InfluxDB
+influxdb:
+  # Endpoint
+  endpoint: "https://us-east-1-1.aws.cloud2.influxdata.com"
+  # Bucket
+  bucket: otel
+  # Token
+  token: ""

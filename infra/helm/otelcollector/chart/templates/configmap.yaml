@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-opentelemetry-collector-statefulset
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Values.name }}
+data:
+  relay: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: ${env:MY_POD_IP}:4317
+          http:
+            endpoint: ${env:MY_POD_IP}:4318
+
+      prometheus:
+        config:
+          scrape_configs:
+          - job_name: self
+            scrape_interval: 10s
+            static_configs:
+            - targets:
+              - ${env:MY_POD_IP}:8888
+
+    processors:
+      batch: {}
+      memory_limiter:
+        check_interval: 5s
+        limit_percentage: 80
+        spike_limit_percentage: 25
+
+    exporters:
+      debug: {}
+      logging: {}
+
+      influxdb:
+        endpoint: {{ .Values.influxdb.endpoint }}
+        timeout: 500ms
+        org: Consultant
+        bucket: {{ .Values.influxdb.bucket }}
+        token: {{ .Values.influxdb.token }}
+        span_dimensions:
+        - service.name
+        - span.name
+        log_record_dimensions:
+        - service.name
+        metrics_schema: telegraf-prometheus-v1
+
+        sending_queue:
+          enabled: true
+          num_consumers: 3
+          queue_size: 10
+
+        retry_on_failure:
+          enabled: true
+          initial_interval: 1s
+          max_interval: 3s
+          max_elapsed_time: 10s
+
+    service:
+      pipelines:
+        metrics:
+          receivers:
+            - otlp
+            - prometheus
+          processors:
+            - memory_limiter
+            - batch
+          exporters:
+            - debug
+            - influxdb
+        traces:
+          receivers:
+            - otlp
+          processors:
+            - memory_limiter
+            - batch
+          exporters:
+            - debug
+            - influxdb
+      telemetry:
+        metrics:
+          address: ${env:MY_POD_IP}:8888
